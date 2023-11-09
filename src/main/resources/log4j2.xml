@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n%throwable"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <!-- 프로젝트 관련 로거 설정 -->
+        <Logger name="com.example.myadminproject" level="debug"/>
+
+        <!-- Spring Framework 관련 로거 설정 -->
+        <Logger name="org.springframework" level="info"/>
+
+        <!-- HikariCP 관련 로거 설정 -->
+        <Logger name="com.zaxxer" level="info"/>
+
+        <!-- log4jdbc 로거 설정 -->
+        <Logger name="log4jdbc.log4j2" level="trace" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <!-- 루트 로거 설정 -->
+        <Root level="warn">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
