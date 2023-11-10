@@ -27,6 +27,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation group: 'com.oracle.database.jdbc', name: 'ojdbc10', version: '19.21.0.0'
@@ -36,7 +38,6 @@ dependencies {
 	implementation 'com.oracle.database.security:osdt_cert:19.21.0.0'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation group: 'org.bgee.log4jdbc-log4j2', name: 'log4jdbc-log4j2-jdbc4.1', version: '1.16'
-
 }
 
 tasks.named('test') {
