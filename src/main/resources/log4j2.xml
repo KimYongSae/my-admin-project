@@ -13,6 +13,8 @@
         <!-- Spring Framework 관련 로거 설정 -->
         <Logger name="org.springframework" level="info"/>
 
+        <Logger name="org.springframework.security" level="debug"/>
+
         <!-- HikariCP 관련 로거 설정 -->
         <Logger name="com.zaxxer" level="info"/>
 
