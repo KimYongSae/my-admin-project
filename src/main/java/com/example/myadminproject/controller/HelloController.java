@@ -52,6 +52,12 @@ public class HelloController
         log.info("loginController");
         return "login";
     }
+    @GetMapping("/register")
+    public String register(){
+
+        log.info("registerController");
+        return "register";
+    }
     @GetMapping("/contact")
     public String contact(){
 
