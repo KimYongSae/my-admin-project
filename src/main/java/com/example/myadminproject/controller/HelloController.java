@@ -34,12 +34,12 @@ public class HelloController
         return "grid";
     }
 
-    @GetMapping("/board")
-    public String board(){
-
-        log.info("boardController");
-        return "board";
-    }
+//    @GetMapping("/board")
+//    public String board(){
+//
+//        log.info("boardController");
+//        return "board";
+//    }
     @GetMapping("/excel")
     public String excel(){
 
@@ -75,7 +75,7 @@ public class HelloController
         try {
             userService.registerNewUser(user);
             log.info("User registered: " + user);
-            return "redirect:/"; // 성공 시 리디렉션될 페이지
+            return "redirect:login"; // 성공 시 리디렉션될 페이지
         } catch (Exception e) {
             log.error("Registration error: " + e.getMessage());
             return "register"; // 실패 시 리디렉션될 페이지
