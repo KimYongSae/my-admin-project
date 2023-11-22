@@ -17,6 +17,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/lostark").authenticated()  // '/lostark' 경로는 인증된 사용자만 접근 가능
+                        .requestMatchers("/board/write").authenticated()  // '/lostark' 경로는 인증된 사용자만 접근 가능
                         .anyRequest().permitAll()
                 )
                 .formLogin(form -> form
