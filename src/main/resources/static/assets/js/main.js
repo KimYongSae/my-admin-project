@@ -329,6 +329,7 @@
 
   // 페이지 로드 시 실행되는 함수
   document.addEventListener('DOMContentLoaded', function() {
+    console.log("test")
     // 현재 페이지의 URL을 가져옵니다.
     var currentLocation = window.location.href;
     // sidebar-nav 내의 모든 링크를 찾습니다.
@@ -343,3 +344,19 @@
       }
     });
   });
+
+/**
+ * quill에디터 전송
+ */
+// $("#boardSubmit").click(function() {
+//   var quill = Quill.find(document.querySelector('.quill-editor-full'));
+//   var editorContent = quill.root.innerHTML;
+//   $('#content').val(editorContent);
+//   $("#boardWriteForm").submit();
+// });
+document.getElementById("boardSubmit").addEventListener("click", function() {
+  var quill = Quill.find(document.querySelector('.quill-editor-full'));
+  var editorContent = quill.root.innerHTML;
+  document.getElementById('content').value = editorContent;
+  document.getElementById("boardWriteForm").submit();
+});

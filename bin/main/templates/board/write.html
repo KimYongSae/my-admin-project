@@ -67,12 +67,16 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">글쓰기</h5>
-                <div class="quill-editor-full" style="height: 400px; margin-bottom: 16px;">
-
-                </div>
-                <div class="text-center">
-                    <a href="/" class="btn btn-primary btn-lg">등록</a>
-                </div>
+                <form class= "row g-3" action="/board/write" method="post" id="boardWriteForm">
+                    <input type="text" class="form-control" placeholder="Title" name="title" id="title">
+                    <input type="hidden" name="user_id" id="user_id" th:value="${#authentication.name}">
+                    <input type="hidden" name="content" id="content">
+                    <div class="quill-editor-full" style="height: 400px; margin-bottom: 16px;">
+                    </div>
+                    <div class="text-center">
+                        <input type="button" id="boardSubmit" class="btn btn-primary btn-lg" value="등록"/>
+                    </div>
+                </form>
             </div>
         </div>
     </section>

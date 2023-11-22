@@ -343,3 +343,14 @@
       }
     });
   });
+
+/**
+ * quill 에디터 전송을 위한 js
+ */
+  $("#boardSubmit").click(function() {
+    var quill = Quill.find(document.querySelector('.quill-editor-full'));
+    var editorContent = quill.root.innerHTML;
+    $('#content').val(editorContent);
+    $("#boardWriteForm").submit();
+  });
+

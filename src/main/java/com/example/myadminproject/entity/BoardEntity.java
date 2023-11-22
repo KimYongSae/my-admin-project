@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.DynamicInsert;
 
 import java.time.LocalDateTime;
 
@@ -13,13 +14,13 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @ToString
 @Entity
+@DynamicInsert
 @Table(name = "board")
 public class BoardEntity {
 
     @Id
     @Column(name = "post_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "boardSeq")
-    @SequenceGenerator(name = "boardSeq", sequenceName = "ADMIN.ISEQ$$_107762", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int postId;
 
     @Column(name = "user_id")
