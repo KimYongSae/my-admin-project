@@ -1,3 +1,10 @@
-insert into users VALUES('yonggale3@naver.com', 'abcd', '김용세');
 
-insert into board (user_id, title, content) VALUES('yonggale3@naver.com', 'test', 'testtest');
+
+INSERT INTO board (user_id, title, content)
+SELECT 
+    'test', 
+    'Title ' || LEVEL, 
+    'Content for post ' || LEVEL
+    
+FROM dual
+CONNECT BY LEVEL <= 100;

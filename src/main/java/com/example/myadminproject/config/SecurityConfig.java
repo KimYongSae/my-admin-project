@@ -16,8 +16,8 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/lostark").authenticated()  // '/lostark' 경로는 인증된 사용자만 접근 가능
-                        .requestMatchers("/board/write").authenticated()  // '/lostark' 경로는 인증된 사용자만 접근 가능
+                        .requestMatchers("/lostark").authenticated()
+                        .requestMatchers("/board/write").authenticated()
                         .anyRequest().permitAll()
                 )
                 .formLogin(form -> form

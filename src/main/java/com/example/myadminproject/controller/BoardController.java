@@ -33,6 +33,19 @@ public class BoardController {
         model.addAttribute("page", boardList);
         log.info("boardList = " + boardList);
         log.info("boardList = " + boardList.getTotalPages());
+
+        int totalPages = boardList.getTotalPages();
+        int currentPageGroup = (page - 1) / 10;
+        int startPage = currentPageGroup * 10 + 1;
+        int endPage = Math.min(startPage + 9, totalPages);
+
+        boolean hasPrev = startPage > 1;
+        boolean hasNext = endPage < totalPages;
+
+        model.addAttribute("startPage", startPage);
+        model.addAttribute("endPage", endPage);
+        model.addAttribute("hasPrev", hasPrev);
+        model.addAttribute("hasNext", hasNext);
         return "board/list";
     }
 
@@ -53,6 +66,8 @@ public class BoardController {
     @GetMapping("/{postId}")
     public String boardDetail(@PathVariable ("postId") int postId ,Model model) {
         log.info("boardDeatil_postId = " + postId);
+
+        boardService.incrementViewCount(postId);
 
         BoardEntity board = boardService.findBoardById(postId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid board ID: " + postId));

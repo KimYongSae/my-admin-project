@@ -42,5 +42,11 @@ public class BoardService {
         return boardRepository.save(board);
     }
 
+    public void incrementViewCount(int id) {
+        boardRepository.findById(id).ifPresent(board -> {
+            board.setView_count(board.getView_count() + 1);
+            boardRepository.save(board);
+        });
+    }
     // 추가적인 메서드, 예를 들면 게시글 저장, 삭제, 단일 게시글 조회 등
 }

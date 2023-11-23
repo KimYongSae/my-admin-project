@@ -73,6 +73,9 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item" th:text="${board.user_id}"></li>
                             <li class="breadcrumb-item" th:text="${#temporals.format(board.created_at, 'yyyy-MM-dd HH:mm')}"></li>
+                            <li class="breadcrumb-item">
+                                <i class="bi-eye-fill"></i><span th:text="${board.view_count}"></span>
+                            </li>
                         </ol>
                     </nav>
                     <div class="board-body ql-editor" th:utext="${board.content}">
