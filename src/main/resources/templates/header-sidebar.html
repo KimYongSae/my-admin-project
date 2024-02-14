@@ -141,10 +141,11 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="/login">
-                <i class="bi bi-box-arrow-in-right"></i>
-                <span>로그인</span>
+            <a class="nav-link collapsed" th:href="${#authorization.expression('isAuthenticated()') ? '/logout' : '/login'}">
+                <i class="bi" th:classappend="${#authorization.expression('isAuthenticated()') ? 'bi-box-arrow-right' : 'bi-box-arrow-in-right'}"></i>
+                <span th:text="${#authorization.expression('isAuthenticated()') ? '로그아웃' : '로그인'}"></span>
             </a>
+
         </li><!-- End Login Page Nav -->
 
         <!-- <li class="nav-item">
